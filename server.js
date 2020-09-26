@@ -1,8 +1,8 @@
-var express = require("express");
+const express = require("express");
 const app = express();
 
 //require routes
-var coursesRoutes = require("./routes/courses");
+//var coursesRoutes = require("./routes/courses");
 
 app.get("/main", (req, res) => {
   const customers = [
@@ -12,8 +12,10 @@ app.get("/main", (req, res) => {
     { id: 4, Name: "Rahil" },
   ];
 });
-
-app.use(coursesRoutes);
+//DB CONNECTION
+const DBconnection = require("./config/connect");
+DBconnection();
+//app.use(coursesRoutes);
 
 const port = process.env.PORT || 8080;
 
